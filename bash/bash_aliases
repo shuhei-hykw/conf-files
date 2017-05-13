@@ -3,7 +3,6 @@
 # Author: Shuhei Hayakawa
 
 #_______________________________________________________________________________
-alias echo="gecho"
 alias rm="rm -iv"
 alias rmr="\rm -rfv"
 alias mv="mv -iv"
@@ -11,10 +10,8 @@ alias cp="cp -iv"
 alias j="jobs -l"
 alias du="du -csh"
 alias ..="cd .."
-alias open="reattach-to-user-namespace open"
 
-alias ls="ls -FG"
-#alias ls="gls -F --color=auto --group-directories-first"
+alias ls="ls -F --color=auto --group-directories-first"
 alias la="ls -A"
 alias ll="ls -lh"
 alias lla="ls -Alh"
@@ -43,16 +40,8 @@ if [ $host = "shmbp.intra.j-parc.jp" ]; then
 else
     alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kek.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
 fi
-alias hs="ssh -Y hypsrv"
-alias hd="ssh -Y hypds"
-alias km="ssh -Y kmhome"
-alias saho="ssh -Y shuhei@login-a.rcnp.osaka-u.ac.jp"
-
-alias asr="ssh -Y jh@asr214.intra.j-parc.jp"
-alias sksterm4="ssh -Y sks@sksterm4.intra.j-parc.jp"
 
 alias vi=vim
-#alias emacs="/opt/local/bin/emacs -nw"
 alias em="emacs"
 alias sem="sudo emacs -nw"
 alias emb="emacs ~/.bashrc"
@@ -61,7 +50,7 @@ alias mew="emacs -f mew"
 alias www="emacs -f w3m"
 #alias om="cd ~/work/opera-3d;~/software/Opera_13_039/bin/opera_manager &"
 
-alias od="god -tx4z -Ax -v"
+alias od="od -tx4z -Ax -v"
 alias sb="source ~/.bashrc"
 alias logw="sudo /root/logw"
 alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
@@ -70,5 +59,3 @@ alias h=which
 alias cal="~/software/jhcal/jhcal"
 alias q="exit"
 alias npm=$HOME/node_modules/.bin/npm
-
-alias texit=/Applications/LaTeXiT.app/Contents/MacOS/LaTeXiT
