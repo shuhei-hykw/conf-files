@@ -97,41 +97,31 @@ export HISTCONTROL=ignoreboth
 #shopt -s histreedit
 #shopt -s histverify
 
-host=
-if [ ! -z "$HOSTNAME" ]; then host=$HOSTNAME; fi
-if [ ! -z "$HOST" ]; then host=$HOST; fi
-
-case $host in
-    km*) col=green;;
-    hyp*) col=red;;
-    hayakawa*) col=water;;
-    shpc*)  col=cyan;;
-    shmbp*) col=magenta;;
-    cw*) col=yellow;;
-    *) col=1;; # white
-esac
-
-PROMPT="[%n@%B%{${fg[$col]}%}%m%{${reset_color}%}%b:%.] "
-#RPROMPT="%{${fg[green]}%}%~%{${reset_color}%}"
-
-#--- Other source ---
-if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
-fi
 
 #_______________________________________________________________________________
-case ${OSTYPE} in
-    darwin*)
-	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
-	;;
-    linux*)
-	if has module; then
-	    module load gcc/485
-	    source ~/.thisroot.sh
-	    alias root="root -l"
-	fi
-	;;
+other_source=(
+    ~/.zsh_aliases
+    ~/.zsh_host
+)
+for f in ${other_source[@]}; do
+    if [ -f $f ]; then source $f; fi
+done
+
+#_______________________________________________________________________________
+host=
+if [ ! -z "$HOSTNAME" ]; then host=$HOSTNAME; fi
+if [ ! -z "$HOST"     ]; then host=$HOST;     fi
+case $host in
+    km*) color=green;;
+    hyp*) color=red;;
+    shpc*) color=cyan;;
+    shmbp*) color=magenta;;
+    cw*) color=yellow;;
+    *) color=white;;
 esac
+
+PROMPT="[%n@%B%{${fg[$color]}%}%m%{${reset_color}%}%b:%.] "
+#RPROMPT="%{${fg[green]}%}%~%{${reset_color}%}"
 
 km=shuhei@kmpc5.phys.sci.osaka-u.ac.jp
 kek=hayashu@login.cc.kek.jp

@@ -3,7 +3,7 @@
 # Author: Shuhei Hayakawa
 
 #_______________________________________________________________________________
-#echo "read .bash_aliases ..."
+#echo " read .bash_aliases ..." >2
 
 alias rm="rm -iv"
 alias rmr="\rm -rfv"
@@ -13,12 +13,12 @@ alias j="jobs -l"
 alias du="du -csh"
 alias ..="cd .."
 
-alias ls="ls -F --color=auto --group-directories-first"
+alias ls="ls -F --color --group-directories-first"
 alias la="ls -A"
 alias ll="ls -lh"
 alias lla="ls -Alh"
-alias l.='ls -d .??* 2>/dev/null'
-alias ll.="ls -dlh .??* 2>/dev/null"
+alias l.='ls -d .??*'
+alias ll.="ls -dlh .??*"
 alias l="ls"
 alias lx="ls -BhX"
 alias lk="ls -lhSr"
@@ -29,16 +29,27 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
-alias ss="ssh shuhei@kmpc5.phys.sci.osaka-u.ac.jp"
+alias lpr="lpr -o PageSize=A4 -Pshuhei_mono"
+alias lprc="\lpr -o PageSize=A4 -Pshuhei_color"
+alias lprcd="\lpr -o PageSize=A4 -o Duplex=DuplexNoTumble -Pshuhei_color"
 
 alias vi=vim
-alias emacs="env TERM=xterm emacs -nw -Q -l ~/.emacs.d/init.el"
+alias emacs="emacs -nw"
 alias em="emacs"
+alias sem="sudo emacs -nw"
+alias emb="emacs ~/.bashrc"
 alias ems="emacs --script"
-
-alias h=which
-alias q="exit"
-
-alias last="last|tac"
+alias mew="emacs -f mew"
+alias www="emacs -f w3m"
+#alias om="cd ~/work/opera-3d;~/software/Opera_13_039/bin/opera_manager &"
 
 alias sz="source ~/.zshrc"
+alias pl="~/local/bin/pl"
+alias logw="sudo /root/logw"
+alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
+alias h=which
+alias cal="~/software/jhcal/jhcal"
+alias q="exit"
+
+alias ss="ssh -Y kmpc5.phys.sci.osaka-u.ac.jp"
+#alias saho="ssh -XY shuhei@login-a.rcnp.osaka-u.ac.jp"

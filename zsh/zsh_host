@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+host=
+if [ ! -z "$HOSTNAME" ]; then host=$HOSTNAME; fi
+if [ ! -z "$HOST"     ]; then host=$HOST;     fi
+
+case $host in
+    km*) ;;
+    hyp*) ;;
+    shpc*) ;;
+    shmbp*)
+	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
+	alias ls="gls -F --color --group-directories-first"
+	alias open="reattach-to-user-namespace open"
+	alias which='alias | gwhich --tty-only --read-alias --show-dot --show-tilde'
+	export G4WORKDIR=$HOME/work/geant4
+	export PATH=$PATH:$G4WORKDIR/bin/Linux-g++
+	export PATH=$PATH:$HOME/software/dawn:$PATH
+	export XERCESCROOT=$HOME/software/xerces
+	alias root="root -l"
+	case $host in
+	    *.intra.j-parc.jp)
+		alias kek='sshpass -f ~/private/pass_phrase ssh -Y hayashu@login.cc.kek.jp'
+		;;
+	    *)
+		alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kk.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
+		;;
+	esac
+	;;
+    cw*)
+	if has module; then
+	    module load gcc/485
+	    source ~/.thisroot.sh
+	    alias root="root -l"
+	fi
+	;;
+    *) ;;
+esac
