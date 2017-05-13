@@ -102,7 +102,7 @@ other_source=(
     ~/.zsh_functions
     ~/.zsh_host
 )
-for f in ${other_source[@]}; do
+for f in $other_source; do
     if [ -f $f ]; then source $f; fi
 done
 
