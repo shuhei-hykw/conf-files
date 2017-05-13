@@ -45,24 +45,19 @@ esac
 conf_dir=$(dirname $($readlink -f $0))
 
 #_______________________________________________________________________________
-function checkfile()
-{
-    if [ -f $1 -o -L $1 ]; then
-	if [ $option = "exec" ]; then
-	    ls -l $1
-	else
-	    :
-	fi
-    fi
-}
-
-#_______________________________________________________________________________
 function makelink()
 {
     if [ $option = "dry" ]; then
 	echo ln -s $1 $2
     elif [ $option = "exec" ]; then
-	ln -isv $1 $2
+	real1=$($readlink -f $1)
+	real2=$($readlink -f $2)
+	if [ $real1 = $real2 ]; then
+	    echo $2 is already linking
+	else
+	    ls -l $1
+	    ln -isv $1 $2
+	fi
     elif [ $option = "new" ]; then
 	[ -e $2 -o -L $2 ] || ln -sv $1 $2
     elif [ $option = "force" ]; then
@@ -89,7 +84,6 @@ file=(
 for f in ${file[@]}
 do
     link=$HOME/.$(basename $f)
-    checkfile $link
     makelink $f $link
 done
 
@@ -100,7 +94,6 @@ file=(
 for f in ${file[@]}
 do
     link=$HOME/.emacs.d/$(basename $f)
-    checkfile $link
     makelink $f $link
 done
 
