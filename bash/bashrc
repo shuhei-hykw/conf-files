@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+ulimit -c 0
+umask 022 # default 644
+set color
+#set -o ignoreeof
+set history=50000
+set histfilesize=50000
+unset autologout
+
+#--- Environmental variables ---
+export SHELL=/bin/bash
+export HOME=/Users/shuhei
+export TZ=JST-09
+export EDITOR=emacs
+export PAGER=less
+export G4VRMLFILE_VIEWER=freewrl
+export LESS='-iMR'
+export LSCOLORS=ExGxcxdxcxegedabagacad
+export JLESSCHARSET=japanese-ujis
+export MANPATH=$MANPATH:/opt/local/man
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+PATH=$HOME/local/bin:/usr/local/bin:$PATH
+PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH=$HOME/local/bin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:$PATH
+LDLP=/opt/local/lib/gcc47:/usr/local/lib:/usr/lib:/usr/lib64/:/usr/local/lib64
+LDLP=/lib:/lib64:$LDLP
+LDLP=$HOME/local/lib:$HOME/local/lib64:$LDLP
+export PATH=$PATH
+export LD_LIBRARY_PATH=$LDLP
+
+#unset LDLP
+km=shuhei@kmpc5.phys.sci.osaka-u.ac.jp
+sl=shuhei@180.26.177.75
+k18=10.105.49.216
+phys=phys.sci.osaka-u.ac.jp
+kek=hayashu@login.cc.kek.jp
+
+#--- Terminal and prompt conf. ---
+if [ $PWD = /Home/pchome/shuhei ]; then cd ~; fi
+#export IGNOREEOF=3
+
+shopt -s no_empty_cmd_completion
+shopt -s checkhash
+
+# history
+function sharehist {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='sharehist'
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTIGNORE=l:ls:la:ll:lk:lx:lc:l.:ll.:lla:\
+i:I:..:cd:px:.q:-:+:=:sb:ss:hs:kek:ta:fg
+export HISTTIMEFORMAT='%y-%m-%d [%H:%M] '
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+shopt -s histreedit
+shopt -s histverify
+#---
+
+case "$HOSTNAME" in
+    km*) col=32;; # green
+    hyp*) col=31;; # red
+    hayakawa*) col="36";; # water
+    *) col=1;; # white
+esac
+
+h2=`expr $HOSTNAME : '\(...\).*'`
+u2=`expr $USER : '\(...\).*'`
+
+#--- Other source ---
+src=(
+    /etc/bashrc
+    $HOME/.bash_aliases
+    $HOME/.bash_functions
+    $HOME/.bash_host
+)
+
+for s in ${src[@]}; do
+    if [ -f $s ]; then . $s; fi
+done
+
+PS1="[\u@\h:\W] "
+
+export PATH=/usr/local/bin:$PATH

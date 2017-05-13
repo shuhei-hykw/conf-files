@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+host=shmbp
+if [ $HOSTNAME == 'shmbp.kmnet.phys.sci.osaka-u.ac.jp' ]; then
+    alias ss="ssh -Y shpc1"
+    alias ta="ssh -Y physweb3.phys.sci.osaka-u.ac.jp"
+    alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kek.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
+    #alias kek="ssh -Yt hayashu@sshcc1.kek.jp ssh -Y login.cc.kek.jp"
+    #$HOME/mnt/MountAll.sh
+fi
+if [ $HOSTNAME == 'shmbp.intra.j-parc.jp' ]; then
+    alias k18='ssh sks@k18server.intra.j-parc.jp'
+    alias kek="sshpass -f ~/private/pass_phrase ssh -Y hayashu@login.cc.kek.jp"
+    #alias kek="ssh -Y hayashu@login.cc.kek.jp"
+fi
+
+#eval `gdircolors ~/.dir_colors -b`
+
+DYLD_LIBRARY_PATH=$HOME/local/lib:$DYLD_LIBRARY_PATH
+#ROOTVERSION=6.04.00
+ROOTVERSION=build
+#ROOTSYS=$HOME/software/root/$ROOTVERSION
+#. $ROOTSYS/bin/thisroot.sh
+#. /opt/local/bin/thisroot5.sh
+#. /opt/local/bin/thisroot6.sh
+#alias root="/opt/local/libexec/root6/bin/root -l"
+
+
+#G4VERSION=9.4.4
+#G4VERSION=9.6.4
+#G4VERSION=10.03.01
+#. $HOME/software/geant4/$G4VERSION/bin/geant4.sh
+. $HOME/software/geant4/9.6.4/bin/geant4.sh
+. $HOME/software/geant4/9.6.4/share/Geant4-9.6.4/geant4make/geant4make.sh
+#. $HOME/software/geant4/10.03.01/bin/geant4.sh
+#. $HOME/software/geant4/10.03.01/share/Geant4-10.3.1/geant4make/geant4make.sh
+#. $HOME/software/geant4/$G4VERSION/share/Geant4-$G4VERSION/geant4make/geant4make.sh
+export G4VRMLFILE_VIEWER=freewrl
+#. $HOME/.garfenv.sh
+export LESSOPEN='|| /opt/local/bin/src-hilite-lesspipe.sh %s'
+export G4WORKDIR=$HOME/work/geant4
+export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
+#export PATH=$PATH:$G4WORKDIR/bin/Darwin-clang
+export PATH=$PATH:$HOME/software/dawn:$PATH
+#export XERCESCROOT=$HOME/software/xercesc
+export XERCESCROOT=/opt/local
+export GARFIELD_HOME=$HOME/software/garfield++
+export HEED_DATABASE=$GARFIELD_HOME/Heed/heed++/database
+
+if [ $host == 'hayakawa' ]; then
+    eval `dircolors ~/.dir_colors -b`
+    . $HOME/software/root/bin/thisroot.sh
+    . $HOME/.g4env.sh > $HOME/.g4env.$host.log
+    export G4WORKDIR=$HOME/work/geant4
+    export PATH=$PATH:$G4WORKDIR/bin/Linux-g++
+    export PATH=$PATH:$HOME/software/dawn:$PATH
+    export XERCESCROOT=$HOME/software/xerces
+    alias e="nautilus --no-desktop --browser"
+    alias root="root -l"
+
+elif [ $host == 'hypds' ]; then
+    eval `dircolors ~/.dir_colors2 -b`
+    alias ls="ls --color=auto"
+
+elif [ $host == 'hypsrv' ]; then
+    eval `dircolors ~/.dir_colors -b`
+    . /Dhyp1/software/root/bin/thisroot.sh
+    export LD_LIBRARY_PATH=/Dhyp1/software/clhep/lib:$LD_LIBRARY_PATH
+    . /Dhyp1/software/geant4/src/geant4/env.sh > ~/.g4env.$host.log
+    export G4VRMLFILE_VIEWER=vrweb
+    export G4WORKDIR=/Dhyp1/shuhei/geant4
+    export PATH=$PATH:$G4WORKDIR/bin/
+    alias root="root -l"
+
+elif [ $host == 'kmlogin' ]; then
+    eval `dircolors ~/.dir_colors -b`
+    ss
+fi
+
+alias tr=tree

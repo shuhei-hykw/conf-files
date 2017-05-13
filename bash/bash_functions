@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+function i {
+    if [ "$1" ]; then
+	history 1000 | grep "$@"
+    else
+	history 30
+    fi
+}
+
+#_______________________________________________________________________________
+function I {
+    if [ "$1" ]; then
+	history  | grep "$@"
+    else
+	history 30
+    fi
+}
+
+#_______________________________________________________________________________
+function env_grep {
+    if [ "$1" ]; then
+	printenv | grep "$@"
+    else printenv
+    fi
+}
+alias env="env_grep"
+
+#_______________________________________________________________________________
+# function tree {
+#     if [ "$1" ]; then tree -L "$@"; else tree ; fi
+# }
+# alias tr=tree

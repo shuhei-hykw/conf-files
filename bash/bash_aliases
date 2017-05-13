@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+alias echo="gecho"
+alias rm="rm -iv"
+alias rmr="\rm -rfv"
+alias mv="mv -iv"
+alias cp="cp -iv"
+alias j="jobs -l"
+alias du="du -csh"
+alias ..="cd .."
+alias open="reattach-to-user-namespace open"
+
+alias ls="ls -FG"
+#alias ls="gls -F --color=auto --group-directories-first"
+alias la="ls -A"
+alias ll="ls -lh"
+alias lla="ls -Alh"
+alias l.='ls -d .??* 2>/dev/null'
+alias ll.="ls -dlh .??* 2>/dev/null"
+alias l="ls"
+alias lx="ls -BhX"
+alias lk="ls -lhSr"
+alias lc="ls -lhtr"
+
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+alias lpr="lpr -o PageSize=A4 -Pshuhei_mono"
+alias lprc="\lpr -o PageSize=A4 -Pshuhei_color"
+alias lprcd="\lpr -o PageSize=A4 -o Duplex=DuplexNoTumble -Pshuhei_color"
+
+alias ss='sshpass -f ~/private/pass_phrase_km ssh shuhei@kmpc5.phys.sci.osaka-u.ac.jp'
+#alias ss="ssh -Y kmpc5.phys.sci.osaka-u.ac.jp"
+alias sl='ssh -Y 153.178.106.202'
+#alias sl="ssh -Y 180.26.177.75"
+host=`hostname -f`
+if [ $host = "shmbp.intra.j-parc.jp" ]; then
+    alias kek='sshpass -f ~/private/pass_phrase ssh -Y hayashu@login.cc.kek.jp'
+else
+    alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kek.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
+fi
+alias hs="ssh -Y hypsrv"
+alias hd="ssh -Y hypds"
+alias km="ssh -Y kmhome"
+alias saho="ssh -Y shuhei@login-a.rcnp.osaka-u.ac.jp"
+
+alias asr="ssh -Y jh@asr214.intra.j-parc.jp"
+alias sksterm4="ssh -Y sks@sksterm4.intra.j-parc.jp"
+
+alias vi=vim
+#alias emacs="/opt/local/bin/emacs -nw"
+alias em="emacs"
+alias sem="sudo emacs -nw"
+alias emb="emacs ~/.bashrc"
+alias ems="emacs --script"
+alias mew="emacs -f mew"
+alias www="emacs -f w3m"
+#alias om="cd ~/work/opera-3d;~/software/Opera_13_039/bin/opera_manager &"
+
+alias od="god -tx4z -Ax -v"
+alias sb="source ~/.bashrc"
+alias logw="sudo /root/logw"
+alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
+#alias which='alias | gwhich --tty-only --read-alias --show-dot --show-tilde'
+alias h=which
+alias cal="~/software/jhcal/jhcal"
+alias q="exit"
+alias npm=$HOME/node_modules/.bin/npm
+
+alias texit=/Applications/LaTeXiT.app/Contents/MacOS/LaTeXiT

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+if [ -f $HOME/.bashrc ]; then
+    . $HOME/.bashrc
+fi
+
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
