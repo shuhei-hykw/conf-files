@@ -16,6 +16,7 @@ conf_dir=$(dirname $($readlink -f $0))
 #_______________________________________________________________________________
 file=(
     `find $conf_dir/root/ -type f`
+    `find $conf_dir/tmux/ -type f`
     `find $conf_dir/zsh/ -type f`
 )
 
