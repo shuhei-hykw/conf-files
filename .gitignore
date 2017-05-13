@@ -1,0 +1,15 @@
+##### .gitignore
+
+### Generals
+.DS_Stopre
+
+### Temps
+*~
+.*~
+*.swp
+.*.swp
+\#*\#
+.\#*\#
+
+### Dirs
+/tmp/
