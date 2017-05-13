@@ -1,0 +1,3 @@
+Unix.*.Root.DynamicPath:	.:~/local/share/root/lib
+Unix.*.Root.MacroPath:		.:~/work/ana/macro:~/k18analyzer/pro/macro
+Root.ErrorIgnoreLevel:		Warning
