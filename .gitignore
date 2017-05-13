@@ -2,6 +2,7 @@
 
 ### Generals
 .DS_Stopre
+*.elc
 
 ### Temps
 *~
