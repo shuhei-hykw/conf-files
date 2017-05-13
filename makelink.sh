@@ -9,9 +9,10 @@ function usage()
     echo
     echo "Usage: $this [options]"
     echo
-    echo "  -d --dry      dry run"
-    echo "  -e --exec     execute"
-    echo "  -f --force    force execute"
+    echo "  -d, --dry       dry run"
+    echo "  -e, --exec      execute"
+    echo "  -n, --new       execute only for new"
+    echo "  -f, --force     force execute"
     echo
 }
 
@@ -25,6 +26,8 @@ if [ $1 = "-d" -o $1 = "--dry" ]; then
     option=dry
 elif [ $1 = "-e" -o $1 = "--exec" ]; then
     option=exec
+elif [ $1 = "-n" -o $1 = "--new" ]; then
+    option=new
 elif [ $1 = "-f" -o $1 = "--force" ]; then
     option=force
 else
@@ -60,6 +63,8 @@ function makelink()
 	echo ln -s $1 $2
     elif [ $option = "exec" ]; then
 	ln -isv $1 $2
+    elif [ $option = "new" ]; then
+	[ -e $2 -o -L $2 ] || ln -sv $1 $2
     elif [ $option = "force" ]; then
 	ln -fsv $1 $2
     fi
@@ -78,6 +83,7 @@ file=(
     `find $conf_dir/mew -type f`
     `find $conf_dir/root -type f`
     `find $conf_dir/tmux -type f`
+    `find $conf_dir/top -type f`
     `find $conf_dir/zsh -type f`
 )
 for f in ${file[@]}
