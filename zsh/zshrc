@@ -63,7 +63,7 @@ autoload -U colors; colors
 
 #_______________________________________________________________________________
 export EDITOR=emacs
-export PAGER=less
+export PAGER="less -iMR"
 export LESS='-X -i -P ?f%f:(stdin).  ?lb%lb?L/%L..  [?eEOF:?pb%pb\%..]'
 export LESSOPEN='|src-hilite-lesspipe.sh %s'
 export LSCOLORS=ExGxcxdxcxegedabagacad

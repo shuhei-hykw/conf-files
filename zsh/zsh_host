@@ -15,6 +15,7 @@ case $host in
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
 	alias ls="gls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
+	alias readlink='greadlink'
 	alias which='alias | gwhich --tty-only --read-alias --show-dot --show-tilde'
 	export G4WORKDIR=$HOME/work/geant4
 	export PATH=$PATH:$G4WORKDIR/bin/Linux-g++
