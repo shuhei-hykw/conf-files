@@ -1,0 +1,44 @@
+#!/bin/zsh
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+#echo "read .bash_aliases ..."
+
+alias rm="rm -iv"
+alias rmr="\rm -rfv"
+alias mv="mv -iv"
+alias cp="cp -iv"
+alias j="jobs -l"
+alias du="du -csh"
+alias ..="cd .."
+
+alias ls="ls -F --color=auto --group-directories-first"
+alias la="ls -A"
+alias ll="ls -lh"
+alias lla="ls -Alh"
+alias l.='ls -d .??* 2>/dev/null'
+alias ll.="ls -dlh .??* 2>/dev/null"
+alias l="ls"
+alias lx="ls -BhX"
+alias lk="ls -lhSr"
+alias lc="ls -lhtr"
+alias less="less -iMR"
+
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+alias ss="ssh shuhei@kmpc5.phys.sci.osaka-u.ac.jp"
+
+alias vi=vim
+alias emacs="env TERM=xterm emacs -nw -Q -l ~/.emacs.d/init.el"
+alias em="emacs"
+alias ems="emacs --script"
+
+alias h=which
+alias q="exit"
+
+alias last="last|tac"
+
+alias sz="source ~/.zshrc"
