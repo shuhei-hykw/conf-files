@@ -37,6 +37,13 @@ case $host in
 	    source ~/.thisroot.sh
 	    alias root="root -l"
 	fi
+	G4TOP=/sw/packages/geant4/9.6.4
+	prev=$PWD
+	cd $G4TOP/bin && source geant4.sh
+	cd $G4TOP/share/Geant4-9.6.4/geant4make && source geant4make.sh
+	cd $prev
+	G4WORKDIR=$HOME/geant4
+	PATH=$G4WORKDIR/bin/Linux-g++:$PATH
 	;;
     *) ;;
 esac

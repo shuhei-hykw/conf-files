@@ -74,9 +74,7 @@ export CLICOLOR=true
 export JLESSCHARSET=japanese-ujis
 export MANPATH=$MANPATH:/opt/local/man
 export PATH=$HOME/local/bin:$PATH
-ldpath=$HOME/local/lib:/usr/lib64:/usr/lib:/usr/local/lib:
-ldpath=$ldpath:/lib64:/lib
-export LD_LIBRARY_PATH=$ldpath:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH
 
 #_______________________________________________________________________________
 if [ $PWD = /Home/pchome/shuhei ]; then cd ~; fi
