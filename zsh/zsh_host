@@ -10,7 +10,10 @@ if [ ! -z "$HOST"     ]; then host=$HOST;     fi
 case $host in
     km*) ;;
     hyp*) ;;
-    shpc*) ;;
+    shpc*)
+	alias kek=$HOME/local/bin/kek.sh
+	alias ss=$HOME/local/bin/ss.sh
+	;;
     shmbp*)
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
 	alias ls="gls -F --color --group-directories-first"
