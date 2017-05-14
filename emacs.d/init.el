@@ -171,6 +171,8 @@
     (setq write-file-hooks
 	  (cons 'time-stamp write-file-hooks)))
 
-;;; Local Variables: 
+(setq vc-handled-backends ())
+
+;;; Local Variables:
 ;;; after-save-hook: (lambda () (byte-compile-file (buffer-file-name)))
 ;;; End:
