@@ -47,21 +47,24 @@ conf_dir=$(dirname $($readlink -f $0))
 #_______________________________________________________________________________
 function makelink()
 {
+    src=$1
+    dst=$2
+
     if [ $option = "dry" ]; then
-	echo ln -s $1 $2
+	echo ln -s $src $dst
     elif [ $option = "exec" ]; then
-	real1=$($readlink -f $1)
-	real2=$($readlink -f $2)
+	real1=$($readlink -f $src)
+	real2=$($readlink -f $dst)
 	if [ $real1 = $real2 ]; then
-	    echo $2 is already linking
+	    echo $dst is already linking
 	else
-	    ls -l $1
-	    ln -isv $1 $2
+	    ls -l $src
+	    ln -isv $src $dst
 	fi
     elif [ $option = "new" ]; then
-	[ -e $2 -o -L $2 ] || ln -sv $1 $2
+	[ -e $dst -o -L $dst ] || ln -sv $src $dst
     elif [ $option = "force" ]; then
-	ln -fsv $1 $2
+	ln -fsv $src $dst
     fi
 }
 
