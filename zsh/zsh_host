@@ -49,6 +49,7 @@ case $host in
 	cd $prev
 	G4WORKDIR=$HOME/geant4
 	PATH=$G4WORKDIR/bin/Linux-g++:$PATH
+	TERM=xterm
 	;;
     *) ;;
 esac
