@@ -12,13 +12,11 @@ function has()
 bindkey -e
 
 unset autologout
-
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt no_flow_control
 setopt no_beep
-
 autoload -Uz compinit
 compinit
 
@@ -122,6 +120,7 @@ esac
 
 PROMPT="[%n@%B%{${fg[$color]}%}%m%{${reset_color}%}%b:%.] "
 #RPROMPT="%{${fg[green]}%}%~%{${reset_color}%}"
+TERM=xterm
 
 km=shuhei@kmpc5.phys.sci.osaka-u.ac.jp
 kek=hayashu@login.cc.kek.jp
