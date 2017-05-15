@@ -51,5 +51,5 @@ alias h=which
 alias cal="~/software/jhcal/jhcal"
 alias q="exit"
 
-alias ss="ssh -Y kmpc5.phys.sci.osaka-u.ac.jp"
+alias ss="ssh -Y shuhei@kmpc5.phys.sci.osaka-u.ac.jp"
 #alias saho="ssh -XY shuhei@login-a.rcnp.osaka-u.ac.jp"
