@@ -15,6 +15,7 @@ case $host in
 	alias ss=$HOME/local/bin/ss.sh
 	source $HOME/software/root/v6.09.02/bin/thisroot.sh
 	alias root='root -l'
+	TERM=xterm
 	;;
     shmbp*)
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
