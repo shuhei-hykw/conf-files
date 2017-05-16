@@ -10,6 +10,7 @@ function has()
 
 #_______________________________________________________________________________
 bindkey -e
+stty quit undef
 
 unset autologout
 setopt auto_cd
