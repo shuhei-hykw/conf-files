@@ -1,6 +1,6 @@
 ;============================
 ;         mylisp.el
-; update: 2013/10/11 [17:59]
+; update: 2017.05.18
 ;============================
 
 ;--- auto-install ---
@@ -242,7 +242,3 @@
 ;(ibuffer)
 ;(other-window -1)
 ;(eshell)
-
-;;; Local Variables: 
-;;; after-save-hook: (lambda () (byte-compile-file (buffer-file-name)))
-;;; End:

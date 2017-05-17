@@ -3,8 +3,11 @@
 # Author:Shuhei Hayakawa
 
 #_______________________________________________________________________________
+color	:= 1
 elisp	:= $(wildcard *.el)
 target	:= $(elisp:%.el=%.elc)
+
+include ../common.mk
 
 #_______________________________________________________________________________
 .PHONY: all clean
@@ -12,9 +15,9 @@ target	:= $(elisp:%.el=%.elc)
 all: $(target)
 
 .el.elc:
-	@ echo "Compiling $@"
+	@ echo "$(green)=== Compiling $@$(default_color)"
 	emacs -batch -f batch-byte-compile $<
 
 clean:
-	@ echo "Cleaning ..."
+	@ echo "$(green)=== Cleaning ...$(default_color)"
 	@ rm -fv $(target)

@@ -1,10 +1,13 @@
 #!/usr/bin/make
 
-# Author:Shuhei Hayakawa
+# Author: Shuhei Hayakawa
 
 #_______________________________________________________________________________
+color	:= 1
 elisp	:= $(wildcard *.el)
 target	:= $(elisp:%.el=%.elc)
+
+include ../common.mk
 
 #_______________________________________________________________________________
 .PHONY: all clean
@@ -12,9 +15,9 @@ target	:= $(elisp:%.el=%.elc)
 all: $(target)
 
 .el.elc:
-	@ echo "Compiling $@"
-	emacs -batch -f batch-byte-compile $<
+	@ echo "$(green)=== Compiling $@$(default_color)"
+	emacs -l init.el -batch -f batch-byte-compile $<
 
 clean:
-	@ echo "Cleaning ..."
+	@ echo "$(green)=== Cleaning ...$(default_color)"
 	@ rm -fv $(target)

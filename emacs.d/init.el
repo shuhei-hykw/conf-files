@@ -32,7 +32,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (setq file-name-coding-system 'utf-8)
@@ -145,7 +145,7 @@
 ;;     (dired-mark arg)
 ;;     (dired-previous-line 1)))
 ; color edited today
-(defface my-face-f-2 '((t (:foreground "GreenYellow"))) nil)
+(defface my-face-f-2 '((t (:foreground "Yellow"))) nil)
 (defvar my-face-f-2 'my-face-f-2)
 (defun my-dired-today-search (arg)
   "Fontlock search function for dired."
@@ -167,12 +167,8 @@
 ;(setq time-stamp-format "%04y-%02m/%02d"); [%02H:%02M]")
 (setq time-stamp-end "$")
 (setq time-stamp-line-limit 10)                  ; def=8
-(if (not (memq 'time-stamp write-file-hooks))
-    (setq write-file-hooks
-	  (cons 'time-stamp write-file-hooks)))
+(if (not (memq 'time-stamp write-file-functions))
+    (setq write-file-functions
+	  (cons 'time-stamp write-file-functions)))
 
 (setq vc-handled-backends ())
-
-;;; Local Variables:
-;;; after-save-hook: (lambda () (byte-compile-file (buffer-file-name)))
-;;; End:
