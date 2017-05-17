@@ -13,8 +13,8 @@
 ;(require 'zone)
 ;(zone-when-idle 300) ; [s]
 ;--- auto-save-buffers ---
-(require 'auto-save-buffers)
-(run-with-idle-timer 5 t 'auto-save-buffers) ; [s]
+;; (require 'auto-save-buffers)
+;; (run-with-idle-timer 5 t 'auto-save-buffers) ; [s]
 ;(require 'pc-bufsw)
 
 ;--- ibuffer ---

@@ -19,6 +19,14 @@ case $host in
 	G4TOP=$HOME/software/geant4/9.6.4
 	cd $G4TOP/bin && source geant4.sh && cd - >/dev/null
 	cd $G4TOP/share/Geant4-9.6.4/geant4make && source geant4make.sh && cd - >/dev/null
+	case $host in
+	    *.k18net)
+		export http_proxy=http://k18server:8080
+		export https_proxy=http://k18server:8080
+		;;
+	    *)
+		;;
+	esac
 	;;
     shmbp*)
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
