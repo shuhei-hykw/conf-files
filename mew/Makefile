@@ -15,9 +15,9 @@ include ../common.mk
 all: $(target)
 
 .el.elc:
-	@ echo "$(green)=== Compiling $@$(default_color)"
+	$(QUIET) $(ECHO) "$(green)=== Compiling $@$(default_color)"
 	emacs -batch -f batch-byte-compile $<
 
 clean:
-	@ echo "$(green)=== Cleaning ...$(default_color)"
-	@ rm -fv $(target)
+	$(QUIET) $(ECHO) "$(green)=== Cleaning ...$(default_color)"
+	$(QUIET) $(RM) $(target)
