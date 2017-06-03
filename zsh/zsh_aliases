@@ -43,6 +43,8 @@ alias mew="emacs -f mew"
 alias www="emacs -f w3m"
 #alias om="cd ~/work/opera-3d;~/software/Opera_13_039/bin/opera_manager &"
 
+alias od="od -tx4z -Ax -v"
+
 alias sz="source ~/.zshrc"
 alias pl="~/local/bin/pl"
 alias logw="sudo /root/logw"
