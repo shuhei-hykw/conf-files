@@ -9,6 +9,8 @@ function has()
 }
 
 #_______________________________________________________________________________
+ulimit -u unlimited
+
 bindkey -e
 stty quit undef
 

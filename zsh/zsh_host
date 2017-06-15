@@ -61,6 +61,7 @@ case $host in
 	cd $prev
 	G4WORKDIR=$HOME/geant4
 	PATH=$G4WORKDIR/bin/Linux-g++:$HOME/software/unpacker/pro/bin:$PATH
+	export LD_LIBRARY_PATH=/opt/gcc-4.8.5/lib64:$LD_LIBRARY_PATH
 	;;
     *) ;;
 esac
