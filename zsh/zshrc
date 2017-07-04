@@ -129,7 +129,7 @@ TERM=xterm
 km=shuhei@kmpc5.phys.sci.osaka-u.ac.jp
 kek=hayashu@login.cc.kek.jp
 
-has tmux && [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && exit
+#has tmux && [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && exit
 
 #_______________________________________________________________________________
 #  EOF
