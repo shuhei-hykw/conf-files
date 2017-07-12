@@ -10,7 +10,7 @@ function has()
 
 #_______________________________________________________________________________
 ulimit -u unlimited
-ulimit -n unlimited
+ulimit -n 4096
 
 bindkey -e
 stty quit undef

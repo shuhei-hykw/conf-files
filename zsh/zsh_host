@@ -34,6 +34,11 @@ case $host in
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
 	alias which='alias | gwhich --tty-only --read-alias --show-dot --show-tilde'
+	G4TOP=$HOME/software/geant4/9.6.4
+	prev=$PWD
+	cd $G4TOP/bin && source geant4.sh
+	cd $G4TOP/share/Geant4-9.6.4/geant4make && source geant4make.sh
+	cd $prev
 	export G4WORKDIR=$HOME/work/geant4
 	export PATH=$PATH:$G4WORKDIR/bin/Linux-g++
 	export PATH=$PATH:$HOME/software/dawn
