@@ -11,7 +11,9 @@ case $host in
     km*) ;;
     hyp*) ;;
     shpc*)
-	alias kek=$HOME/local/bin/kek.sh
+	#alias kek=$HOME/local/bin/kek.sh
+	#alias kek="ssh hayashu@login.cc.kek.jp"
+	alias kek="ssh hayashu@cw01.cc.kek.jp"
 	alias ss=$HOME/local/bin/ss.sh
 	source $HOME/software/root/v6.09.02/bin/thisroot.sh
 	alias root='root -l'
