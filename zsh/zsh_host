@@ -15,7 +15,7 @@ case $host in
 	#alias kek="ssh hayashu@login.cc.kek.jp"
 	alias kek="ssh hayashu@cw01.cc.kek.jp"
 	alias ss=$HOME/local/bin/ss.sh
-	source $HOME/software/root/v6.09.02/bin/thisroot.sh
+	source $HOME/software/root/pro/bin/thisroot.sh
 	alias root='root -l'
 	G4WORKDIR=$HOME/work/geant4
 	G4TOP=$HOME/software/geant4/9.6.4
