@@ -9,9 +9,6 @@ function has()
 }
 
 #_______________________________________________________________________________
-ulimit -u unlimited
-ulimit -n 4096
-
 bindkey -e
 stty quit undef
 
@@ -119,6 +116,7 @@ case $host in
     shpc*) color=cyan;;
     shmbp*) color=magenta;;
     cw*) color=yellow;;
+    budweiser*) color=red;;
     *) color=white;;
 esac
 

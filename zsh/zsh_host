@@ -56,6 +56,8 @@ case $host in
 	esac
 	;;
     cw*)
+	ulimit -u unlimited
+	ulimit -n 4096
 	if has module; then
 	    module load gcc/485
 	    source ~/.thisroot.sh
@@ -70,5 +72,7 @@ case $host in
 	PATH=$G4WORKDIR/bin/Linux-g++:$HOME/software/unpacker/pro/bin:$PATH
 	export LD_LIBRARY_PATH=/opt/gcc-4.8.5/lib64:$LD_LIBRARY_PATH
 	;;
-    *) ;;
+    *)
+	alias kek="ssh -t hayashu@sshcc1.kek.jp ssh cw01.cc.kek.jp"
+	;;
 esac
