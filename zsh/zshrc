@@ -115,8 +115,8 @@ case $host in
     hyp*) color=red;;
     shpc*) color=cyan;;
     shmbp*) color=magenta;;
+    shwin*) color=cyan;;
     cw*) color=yellow;;
-    budweiser*) color=red;;
     *) color=white;;
 esac
 
