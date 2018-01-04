@@ -1,6 +1,6 @@
 ;============================
 ;         mylisp.el
-; update: 2017.05.18
+; update: 2018.01.04
 ;============================
 
 ;--- auto-install ---
@@ -175,22 +175,22 @@
 ;; (global-set-key (kbd "C-x b") 'anything)
 
 ;--- tempbuf.el ---
-(require 'tempbuf)
-(setq tempbuf-life-extension-ratio 0
-      tempbuf-minimum-timeout 1)
-(add-hook 'compilation-mode-hook 'turn-on-tempbuf-mode)
-(add-hook 'completion-list-mode-hook 'turn-on-tempbuf-mode)
-(add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
-(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+;; (require 'tempbuf)
+;; (setq tempbuf-life-extension-ratio 0
+;;       tempbuf-minimum-timeout 1)
+;; (add-hook 'compilation-mode-hook 'turn-on-tempbuf-mode)
+;; (add-hook 'completion-list-mode-hook 'turn-on-tempbuf-mode)
+;; (add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
+;; (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
 
 ;--- bookmark-extensions ---
-(require 'bookmark-extensions)
-(set-face-foreground 'bmkext-local-directory
-                     (face-foreground font-lock-function-name-face))
-(set-face-background 'bmkext-local-directory
-                     "black")
-(set-face-foreground 'bmkext-local-file
-                     (face-foreground font-lock-variable-name-face))
+;; (require 'bookmark-extensions)
+;; (set-face-foreground 'bmkext-local-directory
+;;                      (face-foreground font-lock-function-name-face))
+;; (set-face-background 'bmkext-local-directory
+;;                      "black")
+;; (set-face-foreground 'bmkext-local-file
+;;                      (face-foreground font-lock-variable-name-face))
 
 ;--- w3m ---
 ;(require 'w3m-load)
@@ -222,12 +222,12 @@
 ;;   (skype--open-all-users-buffer-command))
 
 ;--- other lisps ---
-(require 'twiddle)
-(twiddle-start)
-(load "emvaders")
-(load "setnu")
-(load "setnu+")
-(autoload 'tetris "tetris" "tetris game" t nil)
+;; (require 'twiddle)
+;; (twiddle-start)
+;; (load "emvaders")
+;; (load "setnu")
+;; (load "setnu+")
+;; (autoload 'tetris "tetris" "tetris game" t nil)
 
 ;--- display setting ---
 ;(split-window-horizontally)
