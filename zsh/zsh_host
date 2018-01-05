@@ -11,6 +11,7 @@ case $host in
     km*) ;;
     hyp*) ;;
     shpc*)
+	alias which='alias | /bin/which --tty-only --read-alias --show-dot --show-tilde'
 	case $host in
 	    *.intra.j-parc.jp)
 		alias kek="ssh hayashu@cw01.cc.kek.jp"
@@ -63,6 +64,7 @@ case $host in
     cw*)
 	ulimit -u unlimited
 	ulimit -n 4096
+	alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 	if has module; then
 	    module load gcc/485
 	    source /sw/packages/root/new/bin/thisroot.sh
