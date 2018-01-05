@@ -3,7 +3,8 @@
 # Author: Shuhei Hayakawa
 
 #_______________________________________________________________________________
-function i {
+function i()
+{
     if [ "$1" ]; then
 	history 1000 | grep "$@"
     else
@@ -12,7 +13,8 @@ function i {
 }
 
 #_______________________________________________________________________________
-function I {
+function I()
+{
     if [ "$1" ]; then
 	history  | grep "$@"
     else
@@ -21,7 +23,8 @@ function I {
 }
 
 #_______________________________________________________________________________
-function env_grep {
+function env_grep()
+{
     if [ "$1" ]; then
 	printenv | grep "$@"
     else printenv
@@ -34,3 +37,21 @@ alias env="env_grep"
 #     if [ "$1" ]; then tree -L "$@"; else tree ; fi
 # }
 # alias tr=tree
+
+#_______________________________________________________________________________
+function path_remove()
+{
+    export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`
+}
+
+function path_append() { path_remove $1; export PATH="$PATH:$1"; }
+function path_prepend() { path_remove $1; export PATH="$1:$PATH"; }
+
+#_______________________________________________________________________________
+function ldpath_remove()
+{
+    export LD_LIBRARY_PATH=`echo -n $LD_LIBRARY_PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`
+}
+
+function ldpath_append() { ldpath_remove $1; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$1"; }
+function ldpath_prepend() { ldpath_remove $1; export LD_LIBRARY_PATH="$1:$LD_LIBRARY_PATH"; }

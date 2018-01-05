@@ -64,7 +64,7 @@ case $host in
 	ulimit -n 4096
 	if has module; then
 	    module load gcc/485
-	    source ~/.thisroot.sh
+	    source /sw/packages/root/new/bin/thisroot.sh
 	    alias root="root -l"
 	fi
 	G4VERSION=10.4.0
@@ -74,8 +74,10 @@ case $host in
 	cd $G4TOP/share/Geant4-$G4VERSION/geant4make && source geant4make.sh
 	cd $prev
 	G4WORKDIR=$HOME/geant4
-	PATH=$G4WORKDIR/bin/Linux-g++:$HOME/software/unpacker/pro/bin:$PATH
-	export LD_LIBRARY_PATH=/opt/gcc-4.8.5/lib64:$LD_LIBRARY_PATH
+	export PATH=$G4WORKDIR/bin/Linux-g++:$PATH
+	export PATH=$HOME/software/unpacker/pro/bin:$PATH
+	ldpath_remove /usr/lib64
+	ldpath_remove /usr/local/lib
 	;;
     *)
 	alias kek="ssh -t hayashu@sshcc1.kek.jp ssh cw01.cc.kek.jp"
