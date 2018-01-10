@@ -36,7 +36,7 @@ case $host in
 	esac
 	;;
     shmbp*)
-	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:$PATH
+	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:/usr/local/sbin:$PATH
 	alias ls="gls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
