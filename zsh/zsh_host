@@ -13,7 +13,7 @@ case $host in
     shpc*)
 	alias which='alias | /bin/which --tty-only --read-alias --show-dot --show-tilde'
 	case $host in
-	    *.intra.j-parc.jp)
+	    shpc2*)
 		alias kek="ssh hayashu@cw01.cc.kek.jp"
 		;;
 	    *)
