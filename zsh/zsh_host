@@ -66,10 +66,14 @@ case $host in
 	ulimit -n 4096
 	alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 	if has module; then
-	    module load gcc/485
+	    module load gcc/530
 	    source /sw/packages/root/new/bin/thisroot.sh
+	    source /opt/rh/devtoolset-4/enable
+	    source /opt/rh/python27/enable
 	    alias root="root -l"
+	    #module load python/2.7
 	fi
+
 	G4VERSION=10.4.0
 	G4TOP=/sw/packages/geant4/$G4VERSION
 	prev=$PWD
@@ -78,6 +82,7 @@ case $host in
 	cd $prev
 	G4WORKDIR=$HOME/geant4
 	export PATH=$G4WORKDIR/bin/Linux-g++:$PATH
+
 	export PATH=$HOME/software/unpacker/pro/bin:$PATH
 	ldpath_remove /usr/lib64
 	ldpath_remove /usr/local/lib
