@@ -36,6 +36,7 @@ case $host in
 	esac
 	;;
     shmbp*)
+	source /usr/local/bin/thisroot.sh
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:/usr/local/sbin:$PATH
 	alias ls="gls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
@@ -48,7 +49,7 @@ case $host in
 	cd $G4TOP/share/Geant4-*/geant4make && source geant4make.sh
 	cd $prev
 	export G4WORKDIR=$HOME/work/geant4
-	export PATH=$PATH:$G4WORKDIR/bin/Linux-g++
+	export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
 	export PATH=$PATH:$HOME/software/dawn
 	#export XERCESCROOT=$HOME/software/xerces
 	alias root="root -l"
@@ -57,7 +58,8 @@ case $host in
 		alias kek='ssh -Y hayashu@login.cc.kek.jp'
 		;;
 	    *)
-		alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kk.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
+		#alias kek='sshpass -f ~/private/pass_phrase ssh -Y -t hayashu@sshcc1.kek.jp "sshpass -f ~/private/pass_phrase ssh -Y login.cc.kek.jp"'
+		alias kek='ssh -tY hayashu@sshcc1.kek.jp ssh -Y login.cc.kek.jp'
 		;;
 	esac
 	;;
