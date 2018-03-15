@@ -50,7 +50,7 @@ case $host in
 	cd $prev
 	export G4WORKDIR=$HOME/work/geant4
 	export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
-	export PATH=$PATH:$HOME/software/dawn
+	export PATH=$PATH:$HOME/software/dawn:/usr/local/opt/qt/bin
 	#export XERCESCROOT=$HOME/software/xerces
 	alias root="root -l"
 	case $host in
