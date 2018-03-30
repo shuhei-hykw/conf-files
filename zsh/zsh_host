@@ -71,7 +71,7 @@ case $host in
 	    module load gcc/530
 	    source /sw/packages/root/new/bin/thisroot.sh
 	    source /opt/rh/devtoolset-4/enable
-	    source /opt/rh/python27/enable
+	    #source /opt/rh/python27/enable
 	    alias root="root -l"
 	    #module load python/2.7
 	fi
@@ -84,8 +84,14 @@ case $host in
 	cd $prev
 	G4WORKDIR=$HOME/geant4
 	export PATH=$G4WORKDIR/bin/Linux-g++:$PATH
+	export PATH=/group/had/sks/bin:$PATH
 
-	export PATH=$HOME/software/unpacker/pro/bin:$PATH
+	##### Python
+	export PYENV_ROOT=/group/had/sks/software/pyenv
+	eval "$(pyenv init -)"
+	alias python=/group/had/sks/bin/python
+
+	ldpath_remove /lib64
 	ldpath_remove /usr/lib64
 	ldpath_remove /usr/local/lib
 	;;
