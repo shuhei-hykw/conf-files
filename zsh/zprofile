@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# Author: Shuhei Hayakawa
+
+#_______________________________________________________________________________
+export EDITOR=emacs
+export PAGER="less -iMR"
+export LESS='-X -i -P ?f%f:(stdin).  ?lb%lb?L/%L..  [?eEOF:?pb%pb\%..]'
+export LESSOPEN='|src-hilite-lesspipe.sh %s'
+export LSCOLORS=ExGxcxdxcxegedabagacad
+export ZLS_COLORS=$LS_COLORS
+export CLICOLOR=true
+#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+export JLESSCHARSET=japanese-ujis
+export MANPATH=$MANPATH:/opt/local/man
+export PATH=$HOME/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH
+
+agent="$HOME/tmp/ssh-agent-$USER"
+if [ -S "$SSH_AUTH_SOCK" ]; then
+    case $SSH_AUTH_SOCK in
+	/tmp/*/agent.[0-9]*)
+	    ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+    esac
+elif [ -S $agent ]; then
+    export SSH_AUTH_SOCK=$agent
+else
+    echo "no ssh-agent"
+fi
