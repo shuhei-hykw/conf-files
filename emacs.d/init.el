@@ -2,15 +2,15 @@
 
 ; Author: Shuhei Hayakawa
 
-;_______________________________________________________________________________
+;;______________________________________________________________________________
 (package-initialize)
 
 (setq load-path
       (append '(
 		;;"~/.emacs.d/"
-		"~/.emacs.d/lisp"
-		"~/.emacs.d/lisp/auto-install"
-		"~/.emacs.d/lisp/emacs-bookmark-extension"
+		"~/.emacs.d/site-lisp"
+		"~/.emacs.d/site-lisp/auto-install"
+		"~/.emacs.d/site-lisp/emacs-bookmark-extension"
 		"~/local/share/emacs/site-lisp/mew"
 		"~/local/share/emacs/site-lisp/w3m"
 		)
@@ -27,7 +27,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 ;; (setq markdown-command "/opt/local/bin/multimarkdown")
 
-;===== Japanese =====
+;;===== Japanese =====
 (set-language-environment 'Japanese)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -44,7 +44,7 @@
 (defun sjis () (interactive) (set-buffer-file-coding-system 'sjis-unix))
 (defun dos () (interactive) (set-buffer-file-coding-system 'sjis-dos))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;===== conf =====
+;;===== conf =====
 (setq make-backup-files t)
 (setq backup-directory-alist
       (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/backup"))
@@ -55,7 +55,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)                    ; "yes or no" --> "y or n"
 (setq require-final-newline t)
 
-;===== display =====
+;;===== display =====
 (setq mode-line-frame-identification " ")
 ;(tool-bar-mode -1)                              ; hide tool bar
 (menu-bar-mode -1)                              ; hide menu bar
@@ -73,7 +73,7 @@
       scroll-margin 0
       scroll-step 1)
 
-;===== color =====
+;;===== color =====
 ;(global-font-lock-mode nil)                    ; stop color mode
 (set-cursor-color "orange")                     ; only window mode
 (show-paren-mode 1) ; matching brackets
@@ -87,7 +87,7 @@
 ;(set-face-foreground 'isearch "white")         ; highlight search results
 ;(set-face-background 'isearch "black")
 
-;===== key bindings =====
+;;===== key bindings =====
 ;(setq kill-whole-line t)                       ; C-k include newline
 (global-unset-key [insert])
 (global-unset-key [insertchar])
@@ -115,7 +115,7 @@
 (define-key minibuffer-local-must-match-map (kbd "C-p") 'previous-history-element)
 (define-key minibuffer-local-must-match-map (kbd "C-n") 'next-history-element)
 
-;========== for Mew Setting ==========
+;;========== for Mew Setting ==========
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)
 (if (boundp 'read-mail-command)
@@ -132,7 +132,7 @@
       'mew-draft-kill
       'mew-send-hook))
 
-;===== dired =====
+;;===== dired =====
 ; mark
 ;; (define-key dired-mode-map " " 'dired-toggle-mark)
 ;; (defun dired-toggle-mark (arg)
@@ -160,7 +160,7 @@
                '(my-dired-today-search . my-face-f-2)
             ))))
 
-;===== time stamp =====
+;;===== time stamp =====
 (setq time-stamp-start "date: ")
 (setq time-stamp-format "%04y.%02m.%02d")
 ;(setq time-stamp-format "%04y/%02m/%02d [%02H:%02M]")
@@ -172,3 +172,6 @@
 	  (cons 'time-stamp write-file-functions)))
 
 (setq vc-handled-backends ())
+
+;;===== highlight-indentation =====
+(require 'highlight-indentation)

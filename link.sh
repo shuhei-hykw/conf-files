@@ -91,19 +91,14 @@ file=(
 )
 for f in ${file[@]}
 do
+    if [ $(basename $f) == "Makefile" ]; then
+       continue
+    fi
     link=$HOME/.$(basename $f)
     makelink $f $link
 done
 
-#_______________________________________________________________________________
-file=(
-    `find $conf_dir/emacs.d -type f -name "*.el*"`
-)
-for f in ${file[@]}
-do
-    link=$HOME/.emacs.d/$(basename $f)
-    makelink $f $link
-done
+makelink $conf_dir/emacs.d $HOME/.emacs.d
 
 echo
 echo done

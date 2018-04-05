@@ -4,7 +4,7 @@
 
 #_______________________________________________________________________________
 color	:= 1
-elisp	:= $(wildcard *.el)
+elisp	:= $(wildcard *.el) $(wildcard site-lisp/*.el)
 target	:= $(elisp:%.el=%.elc)
 
 include ../common.mk
