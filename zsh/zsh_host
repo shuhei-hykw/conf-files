@@ -71,9 +71,9 @@ case $host in
 	    module load gcc/530
 	    source /sw/packages/root/new/bin/thisroot.sh
 	    source /opt/rh/devtoolset-4/enable
-	    #source /opt/rh/python27/enable
+	    # source /opt/rh/python27/enable
 	    alias root="root -l"
-	    #module load python/2.7
+	    # module load python/2.7
 	fi
 
 	G4VERSION=10.4.0
@@ -83,13 +83,19 @@ case $host in
 	cd $G4TOP/share/Geant4-$G4VERSION/geant4make && source geant4make.sh
 	cd $prev
 	G4WORKDIR=$HOME/geant4
-	export PATH=$G4WORKDIR/bin/Linux-g++:$PATH
-	export PATH=/group/had/sks/bin:$PATH
+	export PATH=$HOME/local/bin:$G4WORKDIR/bin/Linux-g++:$PATH
+	export PATH=/group/had/sks/software/unpacker/unpacker.gcc530/bin:$PATH
+	# export PYTHONUSERBASE=$HOME/local
+	export PATH=/group/had/sks/software/anaconda2/bin:$PATH
+	export LD_LIBRARY_PATH=/group/had/sks/software/anaconda2/lib:$LD_LIBRARY_PATH
 
 	##### Python
-	export PYENV_ROOT=/group/had/sks/software/pyenv
-	eval "$(pyenv init -)"
-	alias python=/group/had/sks/bin/python
+	export PYTHONWARNINGS=ignore
+	#PYTHONPATH=/group/had/sks/software/anaconda2/lib/python2.7/site-packages:$PYTHONPATH
+	# PYTHONPATH=$PYTHONPATH:/group/had/sks/software/pyenv/versions/2.7.13/lib/python2.7/site-packages
+	# export PYENV_ROOT=/group/had/sks/software/pyenv
+	# eval "$(pyenv init -)"
+	# alias python=/group/had/sks/bin/python
 
 	ldpath_remove /lib64
 	ldpath_remove /usr/lib64

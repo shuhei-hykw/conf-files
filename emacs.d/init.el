@@ -175,3 +175,10 @@
 
 ;;===== highlight-indentation =====
 (require 'highlight-indentation)
+
+;; for python
+(add-hook 'python-mode-hook
+	  '(lambda ()
+	     (setq python-indent 2)
+	     (setq indent-tabs-mod nil)
+	     ))
