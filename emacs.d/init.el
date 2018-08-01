@@ -161,17 +161,21 @@
             ))))
 
 ;;===== time stamp =====
-(setq time-stamp-start "date: ")
-(setq time-stamp-format "%04y.%02m.%02d")
-;(setq time-stamp-format "%04y/%02m/%02d [%02H:%02M]")
-;(setq time-stamp-format "%04y-%02m/%02d"); [%02H:%02M]")
-(setq time-stamp-end "$")
-(setq time-stamp-line-limit 10)                  ; def=8
-(if (not (memq 'time-stamp write-file-functions))
-    (setq write-file-functions
-	  (cons 'time-stamp write-file-functions)))
+;; (setq time-stamp-start "date: ")
+;; (setq time-stamp-format "%04y.%02m.%02d")
+;; ;(setq time-stamp-format "%04y/%02m/%02d [%02H:%02M]")
+;; ;(setq time-stamp-format "%04y-%02m/%02d"); [%02H:%02M]")
+;; (setq time-stamp-end "$")
+;; (setq time-stamp-line-limit 10)                  ; def=8
+;; (if (not (memq 'time-stamp write-file-functions))
+;;     (setq write-file-functions
+;; 	  (cons 'time-stamp write-file-functions)))
 
 (setq vc-handled-backends ())
+
+;; for YML
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 
 ;;===== highlight-indentation =====
 (require 'highlight-indentation)

@@ -3,3 +3,4 @@ Unix.*.Root.MacroPath:		.:~/work/ana/macro:~/k18analyzer/pro/macro
 Root.ErrorIgnoreLevel:		Warning
 Root.MemStat:			1
 Root.ObjectStat:		1
+#OpenGL.CanvasPreferGL:		1
