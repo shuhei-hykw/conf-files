@@ -83,7 +83,6 @@ case $host in
 	export LD_LIBRARY_PATH=./lib:$LD_LIBRARY_PATH
 
 	export PYTHONUSERBASE=$HOME/local
-	export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 	### GEANT4
 	# G4VERSION=10.4.0
@@ -100,14 +99,15 @@ case $host in
 	# export LD_LIBRARY_PATH=/group/had/sks/software/anaconda2/lib:$LD_LIBRARY_PATH
 
 	##### Python
-	# export PATH=/group/had/sks/software/pyenv/shims:$PATH
-	# export PATH=/group/had/sks/software/pyenv/bin:$PATH
-	# export PATH=/group/had/sks/software/shims:$PATH
-	# # export PYTHONWARNINGS=ignore
+	export PATH=/group/had/sks/software/pyenv/shims:$PATH
+	export PATH=/group/had/sks/software/pyenv/bin:$PATH
+	export PATH=/group/had/sks/software/shims:$PATH
+	# export PYTHONWARNINGS=ignore
 	# #PYTHONPATH=/group/had/sks/software/anaconda2/lib/python2.7/site-packages:$PYTHONPATH
 	# PYTHONPATH=$PYTHONPATH:/group/had/sks/software/pyenv/versions/2.7.13/lib/python2.7/site-packages
-	# export PYENV_ROOT=/group/had/sks/software/pyenv
-	# eval "$(pyenv init -)"
+	export PYENV_ROOT=/group/had/sks/software/pyenv
+	eval "$(pyenv init -)"
+	export PATH=$PYENV_ROOT/bin:$PATH
 	# alias python=/group/had/sks/software/pyenv/bin/python
 
 	# ldpath_remove /lib64
