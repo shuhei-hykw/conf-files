@@ -15,3 +15,8 @@
 ### Dirs
 /tmp/
 *.old/
+
+### output
+*.[do]
+*.so
+*.pcm
