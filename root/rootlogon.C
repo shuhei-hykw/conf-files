@@ -17,9 +17,10 @@
     TStyle *myStyle = new TStyle("MyStyle","MyStyle");
     gROOT->GetStyle("Modern")->Copy(*myStyle);
     //gROOT->GetStyle("Plain")->Copy(*myStyle);
+    myStyle->SetHistLineColor(kBlack);
     myStyle->SetOptStat(0);
-    myStyle->SetPadGridX(0);
-    myStyle->SetPadGridY(0);
+    myStyle->SetStatX(0.9);
+    myStyle->SetStatY(0.95);
 
     // const Int_t myfont = 42;
     //const Int_t myfont = 22;
@@ -33,8 +34,8 @@
     myStyle->SetPadBorderSize(0);
 
     // Grid
-    myStyle->SetPadGridX(kTRUE);
-    myStyle->SetPadGridY(kTRUE);
+    // myStyle->SetPadGridX(kTRUE);
+    // myStyle->SetPadGridY(kTRUE);
 
     // Tick
     myStyle->SetPadTickX(kTRUE);
@@ -60,8 +61,8 @@
     myStyle->SetOptStat(0);
 
     // Marker
-    myStyle->SetMarkerStyle(8);
-    myStyle->SetMarkerSize(2);
+    // myStyle->SetMarkerStyle(8);
+    // myStyle->SetMarkerSize(2);
   }
 
   {//////////////////// 1x2
@@ -90,7 +91,9 @@
     double blue[NRGBs]  = {0.51, 1.00, 0.12, 0.00, 0.00};
 
     /* TColor::CreateGradientColorTable(NRGBs, stops, red, green, blue, NCont); */
-    gStyle->SetNumberContours(NCont);
+    // gStyle->SetNumberContours(NCont);
   }
   gROOT->SetStyle("MyStyle");
+  gStyle->SetPalette(kGreyScale);
+  TColor::InvertPalette();
 }

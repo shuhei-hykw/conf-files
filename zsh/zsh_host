@@ -76,8 +76,6 @@ case $host in
 	source /opt/rh/devtoolset-4/enable
 	#source /sw/packages/root/6.10.08/bin/thisroot.sh
 	source /sw/packages/root/6.12.06/bin/thisroot.sh
-	# source /opt/rh/python27/enable
-	# source /opt/rh/rh-python35/enable
 	alias root="root -l"
 	export PATH=/group/had/sks/software/unpacker/unpacker.gcc530/bin:$PATH
 	export LD_LIBRARY_PATH=./lib:$LD_LIBRARY_PATH
@@ -98,17 +96,23 @@ case $host in
 	# export PATH=/group/had/sks/software/anaconda2/bin:$PATH
 	# export LD_LIBRARY_PATH=/group/had/sks/software/anaconda2/lib:$LD_LIBRARY_PATH
 
-	##### Python
-	# export PATH=/group/had/sks/software/pyenv/shims:$PATH
-	# export PATH=/group/had/sks/software/pyenv/bin:$PATH
-	# export PATH=/group/had/sks/software/shims:$PATH
+	##### Python for Emulsion analysis
+	if [ "$kinema" = 1 ]; then
+	    echo "load kinema"
+	    export PATH=/group/had/sks/software/pyenv/shims:$PATH
+	    export PATH=/group/had/sks/software/pyenv/bin:$PATH
+	    export PATH=/group/had/sks/software/shims:$PATH
+	    export PYENV_ROOT=/group/had/sks/software/pyenv
+	    eval "$(pyenv init -)"
+	    export PATH=$PYENV_ROOT/bin:$PATH
+	    alias python=/group/had/sks/software/pyenv/bin/python
+	else
+	    # source /opt/rh/python27/enable
+	    # source /opt/rh/rh-python35/enable
+	fi
 	# export PYTHONWARNINGS=ignore
 	# PYTHONPATH=/group/had/sks/software/anaconda2/lib/python2.7/site-packages:$PYTHONPATH
 	# PYTHONPATH=$PYTHONPATH:/group/had/sks/software/pyenv/versions/2.7.13/lib/python2.7/site-packages
-	# export PYENV_ROOT=/group/had/sks/software/pyenv
-	# eval "$(pyenv init -)"
-	# export PATH=$PYENV_ROOT/bin:$PATH
-	# alias python=/group/had/sks/software/pyenv/bin/python
 
 	# ldpath_remove /lib64
 	# ldpath_remove /usr/lib64
