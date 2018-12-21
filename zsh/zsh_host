@@ -45,8 +45,8 @@ case $host in
 	G4TOP=/usr/local/opt/geant4
 	#G4TOP=$HOME/software/geant4/9.6.4
 	prev=$PWD
-	cd $G4TOP/bin && source geant4.sh
-	cd $G4TOP/share/Geant4-*/geant4make && source geant4make.sh
+	cd $G4TOP/bin && source geant4.sh 2>/dev/null
+	cd $G4TOP/share/Geant4-*/geant4make && source geant4make.sh 2>/dev/null
 	cd $prev
 	export G4WORKDIR=$HOME/work/geant4
 	export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
