@@ -76,6 +76,8 @@ case $host in
 	source /opt/rh/devtoolset-4/enable
 	#source /sw/packages/root/6.10.08/bin/thisroot.sh
 	source /sw/packages/root/6.12.06/bin/thisroot.sh
+	alias cmake=$HOME/local/bin/cmake
+	alias tmux=$HOME/local/bin/tmux
 	alias root="root -l"
 	export PATH=/group/had/sks/software/unpacker/unpacker.gcc530/bin:$PATH
 	export LD_LIBRARY_PATH=./lib:$LD_LIBRARY_PATH
