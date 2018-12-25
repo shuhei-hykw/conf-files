@@ -59,7 +59,7 @@
 ;(setq mew-auto-get nil)
 ;;;
 ;(setq mew-use-master-passwd t)
-(load-file "~/.emacs.d/my-mew-passwd.el")
+;; (load-file "~/.emacs.d/my-mew-passwd.el")
 
 ;========== display ==========
 ;--- use unicode
