@@ -3,6 +3,11 @@
 ; Author: Shuhei Hayakawa
 
 ;;______________________________________________________________________________
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
 (setq load-path
@@ -21,11 +26,6 @@
 ;; (if (file-exists-p el)
 ;;     (load-file el))
 ;;(load-file "~/.emacs.d/mylisp.el")
-;; (autoload 'markdown-mode "markdown-mode"
-;;   "Major mode for editing Markdown files" t)
-;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-;; (setq markdown-command "/opt/local/bin/multimarkdown")
 
 ;;===== Japanese =====
 (set-language-environment 'Japanese)
@@ -192,3 +192,60 @@
           (lambda ()
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
+
+(add-to-list 'load-path
+      (expand-file-name "/usr/share/emacs/site-lisp/w3m"))
+
+;; w3m
+(setq w3m-coding-system 'utf-8
+      w3m-file-coding-system 'utf-8
+      w3m-file-name-coding-system 'utf-8
+      w3m-input-coding-system 'utf-8
+      w3m-output-coding-system 'utf-8
+      w3m-terminal-coding-system 'utf-8)
+
+(require 'w3m-load)
+;(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (markdown-preview-mode use-package markdown-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; markdown
+(setq markdown-command "github-markup")
+(setq markdown-command-needs-filename t)
+(use-package markdown-mode
+         :commands (markdown-mode gfm-mode)
+         :mode (("\\.md\\'" . gfm-mode)
+            ("\\.markdown\\'" . gfm-mode))
+         :config
+         (setq
+          markdown-command "github-markup"
+          markdown-command-needs-filename t
+          markdown-content-type "application/xhtml+xml"
+          markdown-css-paths '("https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css")
+          markdown-xhtml-header-content "
+<style>
+body {
+  box-sizing: border-box;
+  max-width: 740px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 10px;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('markdown-body');
+});
+</script>
+" ))
+(autoload 'markdown-preview-mode "markdown-preview-mode.el" t)
