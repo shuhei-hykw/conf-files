@@ -23,9 +23,9 @@ case $host in
 	alias ss=$HOME/local/bin/ss.sh
 	alias root='root -l'
 	G4WORKDIR=$HOME/work/geant4
-	G4TOP=$HOME/software/geant4/9.6.4
+	G4TOP=/sw/geant4/10.5.0
 	cd $G4TOP/bin && source geant4.sh && cd - >/dev/null
-	cd $G4TOP/share/Geant4-9.6.4/geant4make && source geant4make.sh && cd - >/dev/null
+	cd $G4TOP/share/Geant4-10.5.0/geant4make && source geant4make.sh && cd - >/dev/null
 	case $host in
 	    *.k18net)
 		export http_proxy=http://k18server:8080
