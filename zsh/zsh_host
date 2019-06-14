@@ -71,13 +71,13 @@ case $host in
 	ulimit -n 4096
 	alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 	#export LIBGL_ALWAYS_INDIRECT=1
-	#module load gcc/485
-	module load gcc/530
-	module load python/3.5
-	module load python/2.7
-	source /opt/rh/devtoolset-4/enable
+	module load gcc/485
+	# module load gcc/530
+	# module load python/2.7
+	# module load python/3.5
+	# source /opt/rh/devtoolset-3/enable
 	#source /sw/packages/root/6.10.08/bin/thisroot.sh
-	source /sw/packages/root/6.12.06/bin/thisroot.sh
+	source /sw/packages/root/pro/bin/thisroot.sh
 	alias cmake=$HOME/local/bin/cmake
 	alias tmux=$HOME/local/bin/tmux
 	alias root="root -l"
@@ -87,15 +87,14 @@ case $host in
 	export PYTHONUSERBASE=$HOME/local
 
 	### GEANT4
-	# G4VERSION=10.4.0
-	# G4TOP=/sw/packages/geant4/$G4VERSION
-	# prev=$PWD
-	# cd $G4TOP/bin && source geant4.sh
-	# cd $G4TOP/share/Geant4-$G4VERSION/geant4make && source geant4make.sh
-	# cd $prev
-	# G4WORKDIR=$HOME/geant4
-	# export PATH=$HOME/local/bin:$G4WORKDIR/bin/Linux-g++:$PATH
-
+	G4VERSION=10.5.0
+	G4TOP=/sw/packages/geant4/$G4VERSION-mt
+	prev=$PWD
+	cd $G4TOP/bin && source geant4.sh
+	cd $G4TOP/share/Geant4-$G4VERSION/geant4make && source geant4make.sh
+	cd $prev
+	G4WORKDIR=$HOME/geant4
+	export PATH=$HOME/local/bin:$G4WORKDIR/bin/Linux-g++:$PATH
 
 	# export PATH=/group/had/sks/software/anaconda2/bin:$PATH
 	# export LD_LIBRARY_PATH=/group/had/sks/software/anaconda2/lib:$LD_LIBRARY_PATH

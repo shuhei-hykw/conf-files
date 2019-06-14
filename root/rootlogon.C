@@ -13,7 +13,7 @@
   // gStyle->SetPadTickX(kTRUE);
   // gStyle->SetPadTickY(kTRUE);
 
-  {//////////////////// 1x1
+  { // for paper
     TStyle *myStyle = new TStyle("MyStyle","MyStyle");
     gROOT->GetStyle("Modern")->Copy(*myStyle);
     //gROOT->GetStyle("Plain")->Copy(*myStyle);
@@ -65,6 +65,54 @@
     // myStyle->SetMarkerSize(2);
   }
 
+  { // for slide
+    TStyle *myStyle = new TStyle("Slide","Slide");
+    // myStyle->SetPalette(kBird);
+    gROOT->GetStyle("Modern")->Copy(*myStyle);
+    //gROOT->GetStyle("Plain")->Copy(*myStyle);
+    myStyle->SetHistLineColor(kBlack);
+    // myStyle->SetOptStat(0);
+    myStyle->SetStatX(0.9);
+    myStyle->SetStatY(0.9);
+
+    myStyle->SetHistLineWidth(2);
+
+    const Int_t myfont = 42;
+    myStyle->SetTextFont(myfont);
+
+    // Frame margin
+    // myStyle->SetPadBottomMargin(0.12);
+    // myStyle->SetPadLeftMargin(0.18);
+    // myStyle->SetPadRightMargin(0.14);
+    // myStyle->SetPadTopMargin(0.10);
+    // myStyle->SetPadBorderSize(0);
+
+    // Grid
+    myStyle->SetPadGridX(kTRUE);
+    myStyle->SetPadGridY(kTRUE);
+
+    // Tick
+    myStyle->SetPadTickX(kTRUE);
+    myStyle->SetPadTickY(kTRUE);
+
+    // Font Label Title
+    myStyle->SetLabelFont(myfont,"xyz");
+    myStyle->SetTitleFont(myfont,"xyz");
+
+    // Size Label Title
+    myStyle->SetLabelSize(0.045,"xyz");
+    myStyle->SetTitleSize(0.055,"xyz");
+
+    // Align
+    // myStyle->SetTitleAlign(22);
+    // myStyle->SetTitleX(0);
+    // myStyle->SetTitleY(0);
+
+    // Marker
+    // myStyle->SetMarkerStyle(8);
+    // myStyle->SetMarkerSize(2);
+  }
+
   {//////////////////// 1x2
     TStyle *myStyle12 = new TStyle("MyStyle12","MyStyle12");
     gROOT->GetStyle("MyStyle")->Copy(*myStyle12);
@@ -93,7 +141,13 @@
     /* TColor::CreateGradientColorTable(NRGBs, stops, red, green, blue, NCont); */
     // gStyle->SetNumberContours(NCont);
   }
-  gROOT->SetStyle("MyStyle");
-  gStyle->SetPalette(kGreyScale);
-  TColor::InvertPalette();
+  // gROOT->SetStyle("MyStyle");
+  gROOT->SetStyle("Slide");
+  // gStyle->SetPalette(kCool);
+  // gStyle->SetPalette(kAvocado);
+  // gStyle->SetPalette(kLake);
+  // gStyle->SetPalette(kBlueRedYellow);
+  // gStyle->SetPalette(kDarkBodyRadiator);
+  // gStyle->SetPalette(kGreyScale);
+  // TColor::InvertPalette();
 }
