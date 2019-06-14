@@ -4,6 +4,7 @@
 
 ;;______________________________________________________________________________
 (require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -204,7 +205,7 @@
       w3m-output-coding-system 'utf-8
       w3m-terminal-coding-system 'utf-8)
 
-(require 'w3m-load)
+;; (use-package w3m-load)
 ;(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
