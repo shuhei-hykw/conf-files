@@ -22,8 +22,8 @@ case $host in
 	esac
 	alias ss=$HOME/local/bin/ss.sh
 	alias root='root -l'
-	G4WORKDIR=$HOME/work/geant4
-	G4TOP=/sw/geant4/10.5.0
+	export G4WORKDIR=$HOME/work/geant4
+	export G4TOP=/sw/geant4/10.5.0
 	cd $G4TOP/bin && source geant4.sh && cd - >/dev/null
 	cd $G4TOP/share/Geant4-10.5.0/geant4make && source geant4make.sh && cd - >/dev/null
 	case $host in

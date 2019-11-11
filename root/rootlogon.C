@@ -81,10 +81,10 @@
     myStyle->SetTextFont(myfont);
 
     // Frame margin
-    // myStyle->SetPadBottomMargin(0.12);
-    // myStyle->SetPadLeftMargin(0.18);
+    myStyle->SetPadBottomMargin(0.12);
+    myStyle->SetPadLeftMargin(0.15);
     // myStyle->SetPadRightMargin(0.14);
-    // myStyle->SetPadTopMargin(0.10);
+    // myStyle->SetPadTopMargin(0.05);
     // myStyle->SetPadBorderSize(0);
 
     // Grid
@@ -100,8 +100,8 @@
     myStyle->SetTitleFont(myfont,"xyz");
 
     // Size Label Title
-    myStyle->SetLabelSize(0.045,"xyz");
-    myStyle->SetTitleSize(0.055,"xyz");
+    myStyle->SetLabelSize(0.04,"xyz");
+    myStyle->SetTitleSize(0.04,"xyz");
 
     // Align
     // myStyle->SetTitleAlign(22);
