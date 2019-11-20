@@ -99,7 +99,7 @@ case $host in
     km*) color=green;;
     hyp*) color=red;;
     shpc*) color=cyan;;
-    shmbp*) color=magenta;;
+    shmb*) color=magenta;;
     shwin*) color=cyan;;
     cw*) color=yellow;;
     *) color=white;;

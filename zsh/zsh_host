@@ -35,7 +35,7 @@ case $host in
 		;;
 	esac
 	;;
-    shmbp*)
+    shmb*)
 	source /usr/local/bin/thisroot.sh
 	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:/usr/local/sbin:$PATH
 	alias ls="gls -F --color --group-directories-first"
