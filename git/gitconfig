@@ -1,0 +1,7 @@
+[ui]
+	color = true
+[push]
+	default = simple
+[user]
+	name = Shuhei Hayakawa
+	email = hayashu@post.j-parc.jp

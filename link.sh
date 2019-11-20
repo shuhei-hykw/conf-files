@@ -83,6 +83,7 @@ echo
 file=(
     `find $conf_dir/bash -type f`
     `find $conf_dir/emacs -type f`
+    `find $conf_dir/git -type f`
     `find $conf_dir/mew -type f`
     `find $conf_dir/python -type f`
     `find $conf_dir/root -type f`
