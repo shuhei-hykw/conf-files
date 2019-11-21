@@ -2,7 +2,7 @@
 
 # Author: Shuhei Hayakawa
 
-#_______________________________________________________________________________
+#______________________________________________________________________________
 host=shmbp
 if [ $HOSTNAME == 'shmbp.kmnet.phys.sci.osaka-u.ac.jp' ]; then
     alias ss="ssh -Y shpc1"

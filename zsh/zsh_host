@@ -2,7 +2,7 @@
 
 # Author: Shuhei Hayakawa
 
-#_______________________________________________________________________________
+#______________________________________________________________________________
 host=
 if [ ! -z "$HOSTNAME" ]; then host=$HOSTNAME; fi
 if [ ! -z "$HOST"     ]; then host=$HOST;     fi
@@ -37,11 +37,13 @@ case $host in
 	;;
     shmb*)
 	source /usr/local/bin/thisroot.sh
-	export PATH=/usr/local/opt/coreutils/bin:/usr/local/bin:/usr/local/sbin:$PATH
+	export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+	export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+	export PATH=/usr/local/opt/gnu-which/libexec/gnubin:$PATH
 	alias ls="ls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
-	alias which='alias | gwhich --tty-only --read-alias --show-dot --show-tilde'
+	alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
 	G4TOP=/usr/local/opt/geant4
 	prev=$PWD
 	cd $G4TOP/bin && source geant4.sh 2>/dev/null
@@ -50,7 +52,6 @@ case $host in
 	export G4WORKDIR=$HOME/work/geant4
 	export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
 	export PATH=$PATH:$HOME/software/dawn:/usr/local/opt/qt/bin
-	export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 	export QTHOME=/usr/local/opt/qt
 	export QTLIBPATH=/usr/local/opt/qt/lib
 	alias root="root -l"
