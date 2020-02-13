@@ -5,3 +5,5 @@
 [user]
 	name = Shuhei Hayakawa
 	email = hayashu@post.j-parc.jp
+[color]
+	ui = true

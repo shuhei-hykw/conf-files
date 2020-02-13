@@ -40,7 +40,6 @@ ROOTVERSION=build
 #. $HOME/software/geant4/$G4VERSION/share/Geant4-$G4VERSION/geant4make/geant4make.sh
 export G4VRMLFILE_VIEWER=freewrl
 #. $HOME/.garfenv.sh
-export LESSOPEN='|| /opt/local/bin/src-hilite-lesspipe.sh %s'
 export G4WORKDIR=$HOME/work/geant4
 export PATH=$PATH:$G4WORKDIR/bin/Darwin-g++
 #export PATH=$PATH:$G4WORKDIR/bin/Darwin-clang
