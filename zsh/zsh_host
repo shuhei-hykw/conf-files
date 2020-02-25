@@ -43,7 +43,7 @@ case $host in
 	alias ls="ls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
-	alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
+	# alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
 	G4TOP=/usr/local/opt/geant4
 	prev=$PWD
 	cd $G4TOP/bin && source geant4.sh 2>/dev/null
