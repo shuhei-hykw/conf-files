@@ -117,8 +117,6 @@ TERM=xterm
 km=shuhei@kmpc5.phys.sci.osaka-u.ac.jp
 kek=hayashu@login.cc.kek.jp
 
-export PYTHONSTARTUP=$HOME/.pythonstartup.py
-
 #______________________________________________________________________________
 _path=""
 for _p in $(echo $PATH | tr ':' ' '); do
