@@ -40,10 +40,10 @@ case $host in
 	export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 	export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 	export PATH=/usr/local/opt/gnu-which/libexec/gnubin:$PATH
+	export PATH=$(npm bin):$PATH
 	alias ls="ls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
-	# alias which='alias | which --tty-only --read-alias --show-dot --show-tilde'
 	G4TOP=/usr/local/opt/geant4
 	prev=$PWD
 	cd $G4TOP/bin && source geant4.sh 2>/dev/null

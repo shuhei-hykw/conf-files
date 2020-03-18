@@ -80,7 +80,6 @@ export HISTCONTROL=ignoreboth
 #shopt -s histreedit
 #shopt -s histverify
 
-
 #______________________________________________________________________________
 other_source=(
     ~/.zsh_aliases
