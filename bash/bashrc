@@ -3,6 +3,7 @@
 # Author: Shuhei Hayakawa
 
 #______________________________________________________________________________
+echo bashrc
 ulimit -c 0
 umask 022 # default 644
 set color
@@ -11,17 +12,12 @@ set history=50000
 set histfilesize=50000
 unset autologout
 
-#--- Environmental variables ---
-export SHELL=/bin/bash
-#export HOME=/Users/shuhei
-export TZ=JST-09
 export EDITOR=emacs
 export PAGER=less
 export G4VRMLFILE_VIEWER=freewrl
 export LESS='-iMR'
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LSCOLORS=ExGxcxdxcxegedabagacad
-export JLESSCHARSET=japanese-ujis
 export MANPATH=$MANPATH:$HOME/local/share/man
 export PATH=$HOME/local/bin:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
@@ -31,21 +27,13 @@ kek=hayashu@login.cc.kek.jp
 
 #--- Terminal and prompt conf. ---
 if [ $PWD != $HOME ]; then cd ~; fi
-#export IGNOREEOF=3
 
 shopt -s no_empty_cmd_completion
 shopt -s checkhash
 
-# history
-function sharehist {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='sharehist'
-HISTSIZE=100000
-HISTFILESIZE=100000
-HISTIGNORE=l:ls:la:ll:lk:lx:lc:l.:ll.:lla:\
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTIGNORE=l:ls:la:ll:lk:lx:lc:l.:ll.:lla:\
 i:I:..:cd:px:.q:-:+:=:sb:ss:hs:kek:ta:fg
 export HISTTIMEFORMAT='%y-%m-%d [%H:%M] '
 export HISTCONTROL=ignoreboth
@@ -77,7 +65,7 @@ for s in ${src[@]}; do
     if [ -f $s ]; then . $s; fi
 done
 
-PS1="[\u@\h:\W] "
+#PS1="[\u@\h \W]$ "
 
 export PATH=/usr/local/bin:$PATH
 export EPICS_HOST_ARCH=linux-arm

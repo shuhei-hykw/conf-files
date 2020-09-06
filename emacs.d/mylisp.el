@@ -242,3 +242,4 @@
 ;(ibuffer)
 ;(other-window -1)
 ;(eshell)
+(global-set-key "\C-z" 'suspend-frame)

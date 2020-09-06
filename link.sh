@@ -86,7 +86,6 @@ file=(
     `find $conf_dir/git -type f`
     `find $conf_dir/mew -type f`
     `find $conf_dir/misc -type f`
-    # `find $conf_dir/python -type f`
     `find $conf_dir/root -type f`
     `find $conf_dir/tmux -type f`
     `find $conf_dir/top -type f`

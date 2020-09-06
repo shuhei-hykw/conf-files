@@ -102,6 +102,7 @@
 (global-set-key (kbd "M-u") 'universal-argument)
 (global-set-key (kbd "M-l") 'goto-line)
 (global-set-key "\C-x\C-e" 'eval-buffer)
+(global-set-key "\C-z" 'suspend-frame)
 (define-key global-map (kbd "C-h") 'delete-backward-char)
 (define-key global-map (kbd "C-j") 'delete-char)
 (define-key global-map (kbd "M-?") 'help-for-help)
@@ -212,7 +213,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (markdown-preview-mode use-package markdown-mode))))
+ '(package-selected-packages
+   (quote
+    (all markdown-preview-mode use-package markdown-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

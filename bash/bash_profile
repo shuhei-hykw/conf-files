@@ -3,8 +3,7 @@
 # Author: Shuhei Hayakawa
 
 #______________________________________________________________________________
+echo bash_profile
 if [ -f $HOME/.bashrc ]; then
     . $HOME/.bashrc
 fi
-
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH

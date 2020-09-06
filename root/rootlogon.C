@@ -7,7 +7,7 @@
   gStyle->SetStatX(0.9);
   gStyle->SetStatY(0.9);
   gStyle->SetStatH(0.2);
-  gStyle->SetStatW(0.2);
+  gStyle->SetStatW(0.16);
   // gStyle->SetPadGridX(kTRUE);
   // gStyle->SetPadGridY(kTRUE);
   // gStyle->SetPadTickX(kTRUE);
@@ -72,8 +72,9 @@
     //gROOT->GetStyle("Plain")->Copy(*myStyle);
     myStyle->SetHistLineColor(kBlack);
     // myStyle->SetOptStat(0);
-    myStyle->SetStatX(0.9);
-    myStyle->SetStatY(0.9);
+    myStyle->SetStatX(0.85);
+    myStyle->SetStatY(0.85);
+    myStyle->SetTitleY(0.93);
 
     myStyle->SetHistLineWidth(2);
 
@@ -81,10 +82,10 @@
     myStyle->SetTextFont(myfont);
 
     // Frame margin
-    myStyle->SetPadBottomMargin(0.12);
+    myStyle->SetPadBottomMargin(0.15);
     myStyle->SetPadLeftMargin(0.15);
-    // myStyle->SetPadRightMargin(0.14);
-    // myStyle->SetPadTopMargin(0.05);
+    myStyle->SetPadRightMargin(0.15);
+    myStyle->SetPadTopMargin(0.15);
     // myStyle->SetPadBorderSize(0);
 
     // Grid

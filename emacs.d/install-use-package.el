@@ -10,3 +10,4 @@
 (package-initialize)
 (package-refresh-contents)
 (package-install 'use-package)
+(package-install 'yaml-mode)

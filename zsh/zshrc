@@ -100,7 +100,7 @@ case $host in
     shpc*) color=cyan;;
     shmb*) color=magenta;;
     shwin*) color=cyan;;
-    cw*) color=yellow;;
+    ccw*) color=yellow;;
     *) color=white;;
 esac
 

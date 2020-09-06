@@ -42,7 +42,7 @@ else
 fi
 
 alias vi=vim
-alias em="emacs"
+alias em="emacs -nw"
 alias sem="sudo emacs -nw"
 alias emb="emacs ~/.bashrc"
 alias ems="emacs --script"
