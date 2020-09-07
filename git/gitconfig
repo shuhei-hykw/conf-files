@@ -7,3 +7,5 @@
 	email = hayashu@post.j-parc.jp
 [color]
 	ui = true
+[pull]
+	rebase = false

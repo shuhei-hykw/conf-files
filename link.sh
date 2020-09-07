@@ -83,7 +83,7 @@ echo
 file=(
     `find $conf_dir/bash -type f`
     `find $conf_dir/emacs -type f`
-    `find $conf_dir/git -type f`
+    `find $conf_dir/git -name gitconfig`
     `find $conf_dir/mew -type f`
     `find $conf_dir/misc -type f`
     `find $conf_dir/root -type f`
@@ -101,6 +101,8 @@ do
 done
 
 makelink $conf_dir/emacs.d $HOME/.emacs.d
+mkdir -p $HOME/.config/git
+makelink $conf_dir/git/ignore $HOME/.config/git/ignore
 
 echo
 echo done

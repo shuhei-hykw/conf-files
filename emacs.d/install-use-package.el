@@ -9,5 +9,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 (package-refresh-contents)
+(package-install 'highlight-indentation)
+(package-install 'markdown-mode)
 (package-install 'use-package)
 (package-install 'yaml-mode)

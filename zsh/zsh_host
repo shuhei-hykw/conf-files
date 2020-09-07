@@ -63,7 +63,7 @@ case $host in
 		cd ~/.ssh && ln -sf config_outside config
 		;;
 	esac
-	alias kek='ssh -tAY hayashu@sshcc1.kek.jp ssh -AY login.cc.kek.jp'
+	alias kek='ssh -AY login.cc.kek.jp'
 	cd
 	;;
     ccw*)
