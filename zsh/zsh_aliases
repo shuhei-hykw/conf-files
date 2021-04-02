@@ -13,7 +13,7 @@ alias j="jobs -l"
 alias du="du -csh"
 alias ..="cd .."
 
-alias ls="ls -F --color --group-directories-first"
+alias ls="ls -F --color"
 alias la="ls -A"
 alias ll="ls -lh"
 alias lla="ls -Alh"
