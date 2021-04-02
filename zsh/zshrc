@@ -95,7 +95,7 @@ host=
 if [ ! -z "$HOSTNAME" ]; then host=$HOSTNAME; fi
 if [ ! -z "$HOST"     ]; then host=$HOST;     fi
 case $host in
-    km*) color=green;;
+    km*|dhcp*|lambda*) color=green;;
     hyp*) color=red;;
     shpc*) color=cyan;;
     shmb*) color=magenta;;

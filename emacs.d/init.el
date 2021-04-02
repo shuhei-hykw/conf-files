@@ -100,7 +100,7 @@
 (global-set-key (kbd "C-^") 'other-window-backward)
 (global-set-key (kbd "M-r") 'replace-string)
 (global-set-key (kbd "M-u") 'universal-argument)
-(global-set-key (kbd "M-l") 'goto-line)
+;; (global-set-key (kbd "M-l") 'goto-line)
 (global-set-key "\C-x\C-e" 'eval-buffer)
 (global-set-key "\C-z" 'suspend-frame)
 (define-key global-map (kbd "C-h") 'delete-backward-char)
@@ -174,6 +174,13 @@
 ;; 	  (cons 'time-stamp write-file-functions)))
 
 (setq vc-handled-backends ())
+
+;; C++ style
+(add-hook 'c++-mode-hook
+          '(lambda()
+             (setq indent-tabs-mode nil)
+             (c-set-offset 'innamespace 0)
+             ))
 
 ;; for YML
 (require 'yaml-mode)

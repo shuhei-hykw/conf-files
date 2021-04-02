@@ -10,6 +10,7 @@ if [ ! -z "$HOST"     ]; then host=$HOST;     fi
 case $host in
     km*) ;;
     hyp*) ;;
+    lambda*) ;;
     shpc*)
 	alias which='alias | /bin/which --tty-only --read-alias --show-dot --show-tilde'
 	case $host in
@@ -17,7 +18,7 @@ case $host in
 		alias kek="ssh hayashu@login.cc.kek.jp"
 		;;
 	    *)
-		alias kek="ssh -t hayashu@sshcc1.kek.jp ssh hayashu@login.cc.kek.jp"
+		alias kek="ssh -t hayashu@sshcc1.kek.jp ssh hayashu@ccw07.cc.kek.jp"
 		;;
 	esac
 	alias ss=$HOME/local/bin/ss.sh
@@ -35,12 +36,13 @@ case $host in
 		;;
 	esac
 	;;
-    shmb*)
+    shmb*|dhcp*)
 	source /usr/local/bin/thisroot.sh
 	export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 	export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 	export PATH=/usr/local/opt/gnu-which/libexec/gnubin:$PATH
 	export PATH=$(npm bin):$PATH
+	alias echo='gecho'
 	alias ls="ls -F --color --group-directories-first"
 	alias open="reattach-to-user-namespace open"
 	alias readlink='greadlink'
@@ -63,7 +65,7 @@ case $host in
 		cd ~/.ssh && ln -sf config_outside config
 		;;
 	esac
-	alias kek='ssh -AY login.cc.kek.jp'
+	alias kek='ssh -AY ccw07.cc.kek.jp'
 	cd
 	;;
     ccw*)
